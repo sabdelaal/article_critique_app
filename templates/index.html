@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Critique</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+    <div class="spinner-container" id="loadingSpinner">
+        <div class="spinner"></div>
+    </div>
+    
+    <!-- Main container -->
+    <div class="container">
+        <h1>Article Critique</h1>
+        <form action="/critique" method="post" id="articleForm">
+            <label for="article_text">Paste your article here:</label>
+            <textarea id="article_text" name="article_text" rows="10" placeholder="Paste your article text here..." required></textarea>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <!-- Previously Submitted Articles -->
+        <div class="submitted-articles">
+            <h2>Previously Submitted Articles:</h2>
+            <ul>
+                {% for article in articles %}
+                    <li><a href="{{ url_for('result', article_id=article.id) }}">{{ article.timestamp }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container" style="text-align: center;">
+            <p>Automatically analyze and critique articles with this web app. Gain insights into the research question, methodology, and findings.</p>
+            <p>This app is powered by Arch. Safwan Abdel Aal.</p>
+            <p>Contact: <a href="mailto:s.abdelaal1@gju.edu.jo">s.abdelaal1@gju.edu.jo</a></p>
+        </div>
+    </footer>
+    
+    <!-- Add these scripts at the end of the <body> tag in index.html -->
+    
+    <!-- Loading spinner script -->
+    <script>
+        document.getElementById('articleForm').addEventListener('submit', function() {
+            document.getElementById('loadingSpinner').style.display = 'flex';
+        });
+    </script>
+    
+    <!-- End of index.html -->
+</body>
+</html>

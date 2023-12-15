@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}Critique Result{% endblock %}
+
+{% block content %}
+    <div class="spinner-container" id="loadingSpinner">
+        <div class="spinner"></div>
+    </div>
+    
+    <div class="container">
+        <h1>Critique Result</h1>
+        <div class="result-section">
+            <h2>Research Question Description:</h2>
+            <p>{{ critique_result['Research Question Description'] }}</p>
+        </div>
+        <div class="result-section">
+            <h2>Methodology Description:</h2>
+            <p>{{ critique_result['Methodology Description'] }}</p>
+        </div>
+        <div class="result-section">
+            <h2>Research Findings:</h2>
+            <p>{{ critique_result['Research Findings'] }}</p>
+        </div>
+        <a href="/">Back to Home</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container" style="text-align: center;">
+            <p>This app is powered by Arch. Safwan Abdel Aal.</p>
+            <p>Contact: <a href="mailto:s.abdelaal1@gju.edu.jo">s.abdelaal1@gju.edu.jo</a></p>
+        </div>
+    </footer>
+
+    <!-- Loading spinner script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('loadingSpinner').style.display = 'none';
+        });
+    </script>
+{% endblock %}
