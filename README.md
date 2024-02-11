@@ -26,10 +26,10 @@ The Article Critique Web App is a tool that allows users to automatically analyz
 
 Before using the application, make sure you have the following installed:
 
-- Python (version X.X.X)
-- Flask (version X.X.X)
-- Spacy (version X.X.X)
-- Other dependencies...
+- Python
+- Flask 
+- Spacy 
+
 
 ### Installation
 
